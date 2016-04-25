@@ -1,0 +1,21 @@
+{
+    "velocity":
+    {
+        "Dirichlet":
+        {
+            "inlet":
+            {
+                "expr":"{(y+0.4)*(2.4-y),0,0}:x:y:z"
+            },
+                "wall":
+                {
+                    "expr":"{0,0,0}"
+                }
+        },
+            "Neumann":
+            {
+                "outlet":
+                {}
+            }
+    }
+}

@@ -38,9 +38,10 @@ int main(int argc, char**argv )
         ( "ns.preconditioner", po::value<std::string>()->default_value( "petsc" ), "Navier-Stokes preconditioner: petsc, PCD, PMM" )
 		;
     qsnsoptions.add( backend_options( "ns" ) ).add( backend_options( "stokes" ) );
+
 	Environment env( _argc=argc, _argv=argv,
                      _desc=qsnsoptions,
-                     _about=about(_name="qs_ns",
+                     _about=about(_name="qs_ns_"+std::to_string(FEELPP_DIM)+"D",
                                   _author="Feel++ Consortium",
                                   _email="feelpp-devel@feelpp.org"));
     constexpr int dim = FEELPP_DIM;
@@ -151,7 +152,7 @@ int main(int argc, char**argv )
         e->step(mybdf->time())->add( "u", u );
         e->step(mybdf->time())->add( "w", w );
         e->step(mybdf->time())->add( "p", p );
-        e->step(mybdf->time())->addScalar( "mean_p", f_mean(p) );
+        //e->step(mybdf->time())->addScalar( "mean_p", f_mean(p) );
         e->save();
         toc("export");
         toc("time step");

@@ -1,24 +1,23 @@
-// -*- mode: javascript -*-
 {
     "velocity":
     {
-        
         "Dirichlet":
         {
-            "inlet":
+            "outlet":
             {
-                "expr":"{(y+0.4)*(2.4-y),0}:x:y"
+                "expr":"{-(y+0.4)*(2.4-y),0}:x:y"
             },
             "wall":
             {
                 "expr":"{0,0}"
             }
         },
-        "Neumann":
-        {
-            "outlet":
-            {}
-        }
+            "Neumann":
+            {
+                "inlet":
+                {
+                    "expr":"0"
+                }
+            }
     }
 }
-        
